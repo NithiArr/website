@@ -1,24 +1,69 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Check dhanu</title>
     <link rel="stylesheet" href="{% static 'nav.css' %}" >
 </head>
+    
 <body>
     
     <div class="topnav">
-        <a class="active" href="home/">Home</a>
+        <a class="active" href="/home">Home</a>
         <a href="/show">Dashboard</a>
         <a href="#contact">Contacts</a>
         <a href="#about">About Us</a>
         <a href="/">Logout</a>
       </div>
         <br>
-        <hr/>
+        <br>
+
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" style="background-color:#04AA6D;">
+			  	<div class="card-header">
+			  		<h5 class="card-title" style="color: black ;">Total Orders</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title"></h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
+			  	<div class="card-header">
+			  		<h5 class="card-title" style="color: black ;" >Orders Delivered</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title"></h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
+			  	<div class="card-header">
+			  		<h5 class="card-title" style="color: black ;">Orders Pending</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title"></h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+        
         <table border="1" style="height:100px;" class="content-table">
             <tr class=" one">
                 <th>studentid</th>
