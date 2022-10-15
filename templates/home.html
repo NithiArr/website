@@ -1,18 +1,46 @@
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <title>Check dhanu</title>
+    <link rel="stylesheet" href="{% static 'nav.css' %}" >
 </head>
 <body>
-    <center class="a">
-        <h2>Super Mobiles</h2>
-            <a href="login/">Login</a>
-            <a href="show/">Show</a>
-    </center>
+    
+    <div class="topnav">
+        <a class="active" href="home/">Home</a>
+        <a href="/show">Dashboard</a>
+        <a href="#contact">Contacts</a>
+        <a href="#about">About Us</a>
+        <a href="/">Logout</a>
+      </div>
+        <br>
+        <hr/>
+        <table border="1" style="height:100px;" class="content-table">
+            <tr class=" one">
+                <th>studentid</th>
+                <th>studentname</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for displayst in crudst%}
+            <tr>
+                <td>{{displayst.id}}</td>
+                <td>{{displayst.stname}}</td>
+                <td>{{displayst.stemail}}</td>
+                <td>{{displayst.staddress}}</td>
+                <td>{{displayst.sno}}</td>
+                <td><a href="/edit/{{displayst.id}}">Edit</a></td>
+                <td><a href="/Delete/{{displayst.id}}">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
 </body>
 </html>

@@ -3,6 +3,10 @@ from base.models import crudst
 from django.contrib import messages
 from base.forms import stform
 
+def homee(request):
+    results=crudst.objects.all()
+    return render(request,"home.html",{"crudst":results})
+
 def stdisplay(request):
     results=crudst.objects.all()
     return render(request,"base.html",{"crudst":results})

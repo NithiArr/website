@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path,include
-from home.views import home
 from login.views import loginn,logout
-from base.views import stedit,stupdate,stdel,stinsert,stdisplay
+from base.views import stedit,stupdate,stdel,stinsert,stdisplay,homee
 urlpatterns = [
     path('',loginn),
     path('logout/',logout),
+    path('home/',homee),
     path('create/',stinsert,name='stinsert'),
     path('show/',stdisplay,name='stdisplay'),
     path('admin/', admin.site.urls),
