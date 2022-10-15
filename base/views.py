@@ -1,7 +1,10 @@
+from inspect import modulesbyfile
 from django.shortcuts import render
 from base.models import crudst
 from django.contrib import messages
 from base.forms import stform
+from .filters import  crudstFilter
+from django.db.models import Q
 
 def homee(request):
     results=crudst.objects.all()
@@ -41,3 +44,16 @@ def stdel(request,id):
     delstudent.delete()
     results=crudst.objects.all()
     return render(request,"base.html",{"crudst":results})
+
+
+
+def searchpage(request):
+    if request.method == 'POST':
+        no = request.POST['sno']
+        emps = crudst.objects.all()
+        if no:
+            emps = emps.filter(Q(sno__icontains = no))
+        return render(request, 'search.html', {'detail': emps})
+    else:
+        str='Pls enter valid ID'
+        return render(request,'search.html',{'cont':str})
