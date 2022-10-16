@@ -53,7 +53,14 @@ def searchpage(request):
         emps = crudst.objects.all()
         if no:
             emps = emps.filter(Q(sno__icontains = no))
+<<<<<<< HEAD
         return render(request, 'base.html', {'detail': emps})
     else:
         str='Pls enter valid ID'
         return render(request,'base.html',{'cont':str})
+=======
+        return render(request, 'search.html', {'detail': emps})
+    else:
+        str='Pls enter valid ID'
+        return render(request,'search.html',{'cont':str})
+>>>>>>> ce7b21d17771f981ed22fc15ad7ac7aef526c1dd
