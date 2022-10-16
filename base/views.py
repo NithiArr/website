@@ -24,9 +24,9 @@ def stinsert(request):
             savest.sno=request.POST.get('sno')
             savest.save()
             messages.success(request,"the record"+savest.stname+"is saved successfully..!")
-            return render(request,"create.html")
+            return render(request,"base.html") 
     else:
-        return render(request,"create.html")
+        return render(request,"base.html")
 
 def stedit(request,id):
     getstudentdetails = crudst.objects.get(id=id)
@@ -53,7 +53,7 @@ def searchpage(request):
         emps = crudst.objects.all()
         if no:
             emps = emps.filter(Q(sno__icontains = no))
-        return render(request, 'search.html', {'detail': emps})
+        return render(request, 'base.html', {'detail': emps})
     else:
         str='Pls enter valid ID'
-        return render(request,'search.html',{'cont':str})
+        return render(request,'base.html',{'cont':str})
