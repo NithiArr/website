@@ -1,7 +1,8 @@
 .head{
   text-align: center;
-  font-size: 17px;
-  font-family: 'sans-serif';
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bolder;
 
 }
 
@@ -45,7 +46,8 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    text-align: center;
+    text-align: center; 
+    padding-left: 120px;
 }
 
 .one {

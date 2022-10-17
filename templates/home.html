@@ -22,70 +22,74 @@
       </div>
         <hr>
         <br>
+    
 
-<div class="row">
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" style="background-color:#04AA6D;">
-			  	<div class="card-header">
-			  		<h5 class="card-title" style="color: black ;">Total Orders</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title"></h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" style="background-color:#04AA6D;">
+                    <div class="card-header">
+                        <h5 class="card-title" style="color: black ;">Total Orders</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
-			  	<div class="card-header">
-			  		<h5 class="card-title" style="color: black ;" >Orders Delivered</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title"></h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
+                    <div class="card-header">
+                        <h5 class="card-title" style="color: black ;" >Orders Delivered</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<div class="col">
-		<div class="col-md">
-			<div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
-			  	<div class="card-header">
-			  		<h5 class="card-title" style="color: black ;">Orders Pending</h5>
-			  	</div>
-			  	<div class="card-body">
-			    	<h3 class="card-title"></h3>
-			  	</div>
-			</div>
-		</div>
-	</div>
-</div>
-        
-        <table border="1" style="height:100px;" class="content-table">
-            <tr class=" one">
-                <th>studentid</th>
-                <th>studentname</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Mobile</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            {% for displayst in crudst%}
-            <tr>
-                <td>{{displayst.id}}</td>
-                <td>{{displayst.stname}}</td>
-                <td>{{displayst.stemail}}</td>
-                <td>{{displayst.staddress}}</td>
-                <td>{{displayst.sno}}</td>
-                <td><a href="/edit/{{displayst.id}}">Edit</a></td>
-                <td><a href="/Delete/{{displayst.id}}">Delete</a></td>
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
+                    <div class="card-header">
+                        <h5 class="card-title" style="color: black ;">Orders Pending</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="secc">  
+            <table border="1" style="height:100px;" class="content-table">
+                <tr class=" one">
+                    <th>studentid</th>
+                    <th>studentname</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                    {% for displayst in crudst%}
+                    <tr>
+                        <td>{{displayst.id}}</td>
+                        <td>{{displayst.stname}}</td>
+                        <td>{{displayst.stemail}}</td>
+                        <td>{{displayst.staddress}}</td>
+                        <td>{{displayst.sno}}</td>
+                        <td><a href="/edit/{{displayst.id}}">Edit</a></td>
+                        <td><a href="/Delete/{{displayst.id}}">Delete</a></td>
 
-            </tr>
-            {% endfor %}
-        </table>
+                    </tr>
+
+                    {% endfor %}
+                
+                </table>
+        </section>
 </body>
 </html>

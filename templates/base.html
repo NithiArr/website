@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check dhanu</title>
-    <link rel="stylesheet" href="{% static 'nav.css' %}" >
+    <link rel="stylesheet" href="{% static 'base.css' %}" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'button.css' %}" >
     </head>
 <style>
     .xt{
-        width: 25%;
-        padding: 12px 20px;
+        width: 50%;
+        padding: 5px 20px;
         margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
@@ -33,49 +33,46 @@
       </div>
         <hr/>
         <br>
-   
-        <form method="POST" style="float:center;" >
-            {% csrf_token %}
-            <h3 class="head">INSERT RECORD HERE</h3>
-            <table border="1" class="content-table" style="margin-left: 400px;">
-                <tr>
-                <td>Studentname</td>
-                <td><input type="text" placeholder="Studentname--" name="stname"></td>
+      <section class="sec"> 
+                <form method="POST" class="float">
+                {% csrf_token %}
+                <h3 class="head">INSERT RECORD HERE</h3>
+                <table border="1" class="content-table">
+                    <tr>
+                    <td>Studentname</td>
+                    <td><input type="text" placeholder="Studentname--" name="stname"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" placeholder="email--" name="stemail"></td>
+                    </tr>
+                    <tr>
+                        <td>Studentaddress</td>
+                        <td><input type="text" placeholder="Studentaddress--" name="staddress"></td>
+                    </tr>
+                    <tr>
+                        <td>Studentno</td>
+                        <td><input type="text" placeholder="Studentno--" name="sno"></td>
+                    </tr>
+                </table>
+                <input type="submit" class="button button4" value="Insert record"/>
 
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td><input type="text" placeholder="email--" name="stemail"></td>
-    
-                </tr>
-                <tr>
-                    <td>Studentaddress</td>
-                    <td><input type="text" placeholder="Studentaddress--" name="staddress"></td>
-    
-                </tr>
-                <tr>
-                    <td>Studentno</td>
-                    <td><input type="text" placeholder="Studentno--" name="sno"></td>
-    
-                </tr>
-        </table>
-        <input type="submit" class="button button4" value="Insert record"/>
-        <hr/>
-        {% if messages %}
-        {% for result in messages%}
-        <b style="color:aqua;">{{result}}</b> 
-        {% endfor %}
-        {% endif %}
+                {% if messages %}
+            {% for result in messages%}
+            <b style="color:aqua;">{{result}}</b> 
+            {% endfor %}
+            {% endif %}
 
-    </form>
+        </form>
         <div>
-            <form method="POST" action="{% url 'search' %}" >
+            <h3 class="head">SEARCH HERE</h3>
+            <form method="POST" action="{% url 'search' %}" class="search" >
                 {%csrf_token%}
                 <label style="font-size: 20px;">Number:</label>
-                <input class="xt" type="text" name="sno">  <br>
+                <input class="xt" type="text" name="sno">  
                 <button class="button button4" type="submit">Search</button>
             </form>
-
+            
             {% for displayst in detail%}
             <tr>
                 <td>{{displayst.id}}</td>
@@ -91,7 +88,7 @@
             
             {% endfor %}
         </div>
-
+      </section>
         
         
 </body>
