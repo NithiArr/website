@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for displayst in detail%}
+            <tr>
+                    <td>{{displayst.id}}</td>
+                    <td>{{displayst.fromdes}}</td>
+                    <td>{{displayst.todes}}</td>
+                    <td>{{displayst.status}}</td>
+                    <td>{{displayst.sno}}</td>
+                    <td>{{displayst.price}}</td>
+            </tr>
+            
+            {% endfor %}
+    
+</body>
+</html>

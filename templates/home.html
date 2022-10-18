@@ -30,6 +30,7 @@
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D;">
                     <div class="card-header">
                         <h5 class="card-title" style="color: black ;">Total Orders</h5>
+                        <a href="{% url 'totalorder' %}">click</a>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"></h3>
@@ -43,6 +44,8 @@
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
                     <div class="card-header">
                         <h5 class="card-title" style="color: black ;" >Orders Delivered</h5>
+                        <a href="{% url 'orderdelivered' %}">click</a>
+                        
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"></h3>
@@ -56,6 +59,7 @@
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
                     <div class="card-header">
                         <h5 class="card-title" style="color: black ;">Orders Pending</h5>
+                        <a href="{% url 'pending' %}">click</a>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"></h3>
@@ -73,8 +77,7 @@
                     <th>Status</th>
                     <th>Refrence No</th>
                     <th>Price</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+
                 </tr>
                     {% for displayst in crudst%}
                     <tr>

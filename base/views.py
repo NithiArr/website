@@ -14,6 +14,10 @@ def stdisplay(request):
     results=crudst.objects.all()
     return render(request,"base.html",{"crudst":results})
 
+def totalorder(request):
+    results=crudst.objects.all()
+    return render(request,"totalorder.html",{"crudst":results})
+
 def stinsert(request):
     if request.method == "POST":
         if request.POST.get('stname') and request.POST.get('stemail') and request.POST.get('staddress') and request.POST.get('sno') and request.POST.get('price'):
@@ -38,6 +42,8 @@ def stinsert(request):
         str='Pls enter valid ID'
         return render(request,'base.html',{'cont':str})
 
+    
+
 def stedit(request,id):
     getstudentdetails = crudst.objects.get(id=id)
     return render(request,"edit.html",{"crudst":getstudentdetails})
@@ -53,6 +59,7 @@ def stdel(request,id):
     delstudent = crudst.objects.get(id=id)
     delstudent.delete()
     results=crudst.objects.all()
+    response = stinsert(request)
     return render(request,"base.html",{"crudst":results})
 
 
