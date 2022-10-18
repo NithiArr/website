@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import model
 
 class crudst(models.Model):
     fromdes = models.CharField(max_length = 100)
