@@ -39,20 +39,24 @@
                 <h3 class="head">INSERT RECORD HERE</h3>
                 <table border="1" class="content-table">
                     <tr>
-                    <td>Studentname</td>
-                    <td><input type="text" placeholder="Studentname--" name="stname"></td>
+                    <td>From</td>
+                    <td><input type="text" placeholder="From" name="stname"></td>
                     </tr>
                     <tr>
-                        <td>Email</td>
-                        <td><input type="text" placeholder="email--" name="stemail"></td>
+                        <td>To</td>
+                        <td><input type="text" placeholder="To" name="stemail"></td>
                     </tr>
                     <tr>
-                        <td>Studentaddress</td>
-                        <td><input type="text" placeholder="Studentaddress--" name="staddress"></td>
+                        <td>Status</td>
+                        <td><input type="text" placeholder="Status" name="staddress"></td>
                     </tr>
                     <tr>
-                        <td>Studentno</td>
-                        <td><input type="text" placeholder="Studentno--" name="sno"></td>
+                        <td>Reference No</td>
+                        <td><input type="text" placeholder="Reference No" name="sno"></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="text" placeholder="Price" name="price"></td>
                     </tr>
                 </table>
                 <input type="submit" class="button button4" value="Insert record"/>
@@ -66,7 +70,7 @@
         </form>
         <div>
             <h3 class="head">SEARCH HERE</h3>
-            <form method="POST" action="{% url 'search' %}" class="search" >
+            <form method="POST" action="{% url 'stinsert' %}" class="search" >
                 {%csrf_token%}
                 <label style="font-size: 20px;">Number:</label>
                 <input class="xt" type="text" name="sno">  
@@ -76,10 +80,12 @@
             {% for displayst in detail%}
             <tr>
                 <td>{{displayst.id}}</td>
-                <td>{{displayst.stname}}</td>
-                <td>{{displayst.stemail}}</td>
-                <td>{{displayst.staddress}}</td>
+                <td>{{displayst.fromdes}}</td>
+                <td>{{displayst.todes}}</td>
+                <td>{{displayst.status}}</td>
                 <td>{{displayst.sno}}</td>
+                <td>{{displayst.price}}</td>
+
                 <td><a href="/edit/{{displayst.id}}">Edit</a></td>
                 <td><a href="/Delete/{{displayst.id}}">Delete</a></td>
                 

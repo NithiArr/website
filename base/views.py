@@ -16,17 +16,27 @@ def stdisplay(request):
 
 def stinsert(request):
     if request.method == "POST":
-        if request.POST.get('stname') and request.POST.get('stemail') and request.POST.get('staddress') and request.POST.get('sno'):
+        if request.POST.get('stname') and request.POST.get('stemail') and request.POST.get('staddress') and request.POST.get('sno') and request.POST.get('price'):
             savest = crudst()
-            savest.stname=request.POST.get('stname')
-            savest.stemail=request.POST.get('stemail')
-            savest.staddress=request.POST.get('staddress')
+            savest.fromdes=request.POST.get('stname')
+            savest.todes=request.POST.get('stemail')
+            savest.status=request.POST.get('staddress')
             savest.sno=request.POST.get('sno')
+            savest.price=request.POST.get('price')
             savest.save()
-            messages.success(request,"the record"+savest.stname+"is saved successfully..!")
+            messages.success(request,"the record saved successfully..!")
             return render(request,"base.html") 
     else:
         return render(request,"base.html")
+    if request.method == 'POST':
+        no = request.POST['sno']
+        emps = crudst.objects.all()
+        if no:
+            emps = emps.filter(Q(sno__icontains = no))
+        return render(request, 'base.html', {'detail': emps})
+    else:
+        str='Pls enter valid ID'
+        return render(request,'base.html',{'cont':str})
 
 def stedit(request,id):
     getstudentdetails = crudst.objects.get(id=id)

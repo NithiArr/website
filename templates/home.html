@@ -67,23 +67,23 @@
     <section class="secc">  
             <table border="1" style="height:100px;" class="content-table">
                 <tr class=" one">
-                    <th>studentid</th>
-                    <th>studentname</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Mobile</th>
+                    <th>S.No.</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Status</th>
+                    <th>Refrence No</th>
+                    <th>Price</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                     {% for displayst in crudst%}
                     <tr>
                         <td>{{displayst.id}}</td>
-                        <td>{{displayst.stname}}</td>
-                        <td>{{displayst.stemail}}</td>
-                        <td>{{displayst.staddress}}</td>
+                        <td>{{displayst.fromdes}}</td>
+                        <td>{{displayst.todes}}</td>
+                        <td>{{displayst.status}}</td>
                         <td>{{displayst.sno}}</td>
-                        <td><a href="/edit/{{displayst.id}}">Edit</a></td>
-                        <td><a href="/Delete/{{displayst.id}}">Delete</a></td>
+                        <td>{{displayst.price}}</td>
 
                     </tr>
 
