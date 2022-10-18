@@ -37,6 +37,8 @@ def stinsert(request):
     else:
         str='Pls enter valid ID'
         return render(request,'base.html',{'cont':str})
+        
+    
 
 def stedit(request,id):
     getstudentdetails = crudst.objects.get(id=id)
