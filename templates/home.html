@@ -76,6 +76,8 @@
             </div>
         </div>
     </div>
+    <br>
+    
     <section class="secc">  
             <table border="1" style="height:100px;" class="content-table">
                 <tr class=" one">
@@ -100,7 +102,31 @@
 
                     {% endfor %}
                 
-                </table>
+
+                {% for displayst in detail%}
+                <tr>
+                        <td>{{displayst.id}}</td>
+                        <td>{{displayst.fromdes}}</td>
+                        <td>{{displayst.todes}}</td>
+                        <td>{{displayst.status}}</td>
+                        <td>{{displayst.sno}}</td>
+                        <td>{{displayst.price}}</td>
+                </tr>
+                
+                {% endfor %}
+                {% for displayst in details%}
+                <tr>
+                        <td>{{displayst.id}}</td>
+                        <td>{{displayst.fromdes}}</td>
+                        <td>{{displayst.todes}}</td>
+                        <td>{{displayst.status}}</td>
+                        <td>{{displayst.sno}}</td>
+                        <td>{{displayst.price}}</td>
+                </tr>
+                
+                {% endfor %}
+            </table>
+
         </section>
 </body>
 </html>
