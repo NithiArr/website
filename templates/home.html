@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Check dhanu</title>
     <link rel="stylesheet" href="{% static 'nav.css' %}" >
+    <link rel="stylesheet" href="{% static 'button.css' %}" >
+
 </head>
     
 <body>
@@ -30,7 +32,9 @@
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D;">
                     <div class="card-header">
                         <h5 class="card-title" style="color: black ;">Total Orders</h5>
-                        <a href="{% url 'totalorder' %}">click</a>
+                        <form action="{% url 'totalorder' %}" class="button button4">
+                            <input type="submit" value="Show" />
+                        </form>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"></h3>
@@ -44,7 +48,9 @@
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
                     <div class="card-header">
                         <h5 class="card-title" style="color: black ;" >Orders Delivered</h5>
-                        <a href="{% url 'orderdelivered' %}">click</a>
+                        <form action="{% url 'orderdelivered' %}" class="button button4">
+                            <input type="submit" value="Show" />
+                        </form>
                         
                     </div>
                     <div class="card-body">
@@ -59,7 +65,9 @@
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
                     <div class="card-header">
                         <h5 class="card-title" style="color: black ;">Orders Pending</h5>
-                        <a href="{% url 'pending' %}">click</a>
+                        <form action="{% url 'pending' %}" class="button button4">
+                            <input type="submit" value="Show" />
+                        </form>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"></h3>

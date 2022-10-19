@@ -28,7 +28,7 @@ def stinsert(request):
             savest.sno=request.POST.get('sno')
             savest.price=request.POST.get('price')
             savest.save()
-            messages.success(request,"the record saved successfully..!")
+            messages.success(request,"The Record saved successfully..!")
             return render(request,"base.html") 
     else:
         return render(request,"base.html")
