@@ -14,7 +14,7 @@ def loginn(request):
             auth.login(request,user)
             return render(request,'base.html')
         else:
-            messages.info(request,"Username or password doent match !!!!")
+            messages.info(request,"Doesnt Match")
             return redirect('/')
     else:
         return render(request,'login.html')

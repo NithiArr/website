@@ -31,7 +31,8 @@
             <div class="col-md">
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D;">
                     <div class="card-header">
-                        <h5 class="card-title" style="color: black ;">Orders out for delivery</h5>
+                        <h5 class="card-title" style="color: white ; font-weight: bold;">Orders out for delivery</h5>
+                        <h6 class="card-title" style="color: rgb(238, 26, 26); font-weight: bold;" >{{ordercount}}</h6>
                         <form action="{% url 'totalorder' %}" class="button button4">
                             <input type="submit" value="Show" />
                         </form>
@@ -47,7 +48,8 @@
             <div class="col-md">
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
                     <div class="card-header">
-                        <h5 class="card-title" style="color: black ;" >Orders Delivered</h5>
+                        <h5 class="card-title" style="color: WHITE ; font-weight: bold;" >Orders Delivered</h5>
+                        <h6 class="card-title" style="color: black ; font-weight: bold; font-size: 30px;" >{{cou}}</h6>
                         <form action="{% url 'orderdelivered' %}" class="button button4">
                             <input type="submit" value="Show" />
                         </form>
@@ -64,7 +66,8 @@
             <div class="col-md">
                 <div class="card text-center text-white  mb-3" style="background-color:#04AA6D">
                     <div class="card-header">
-                        <h5 class="card-title" style="color: black ;">Orders Pending</h5>
+                        <h5 class="card-title" style="color: white ; font-weight: bold;">ORDERS PENDING</h5>
+                        <h5 class="card-title" style="color: rgb(238, 26, 26); font-weight: bold; ">{{ou}}</h5>
                         
                         <form action="{% url 'pending' %}" class="button button4">
                             <input type="submit" value="Show" />

@@ -4,6 +4,7 @@ from django.db.models import Q
 
 
 def home(request):
+
     return render(request, 'home.html')
 
 def totalorder(request):
@@ -11,18 +12,24 @@ def totalorder(request):
     results=crudst.objects.all()
     if status:
             results = results.filter(Q(status__icontains = status))
-    return render(request,"home.html",{"crudst":results})
+            ordercount= results.count()
+    return render(request,"home.html",{"crudst":results,'ordercount':ordercount})
 
 def orderdelivered(request):
         status = 'delivered'
         emps = crudst.objects.all()
+        
+        
         if status:
+            
             emps = emps.filter(Q(status__icontains = status))
-        return render(request, 'home.html', {'detail': emps})
+            cou= emps.count()
+        return render(request, 'home.html', {'detail': emps,'cou':cou})
 
 def pending(request):
         status = 'pending'
         emps = crudst.objects.all()
         if status:
             emps = emps.filter(Q(status__icontains = status))
-        return render(request, 'home.html', {'details': emps})
+            cou= emps.count()
+        return render(request, 'home.html', {'details': emps,'ou':cou})
