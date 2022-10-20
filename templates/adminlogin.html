@@ -82,10 +82,10 @@
 				<div class="d-flex justify-content-center">
 
 
-					<h3 id="form-title">LOGIN</h3>
+					<h3 id="form-title">ADMIN LOGIN</h3>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form method="POST" action="/">
+					<form method="POST" action="/registerr">
 						{% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
@@ -109,7 +109,6 @@
 		
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						
 					</div>
 						<center>
 							{%for messages in messages%}
@@ -118,8 +117,7 @@
 						</center>
 					</div>
 					<div class="mt-4">
-						Are u Admin Login here....
-						<a href="/adminlogin"> Login</a>
+						
 				
 					</div>
 

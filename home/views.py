@@ -10,10 +10,14 @@ def home(request):
 def totalorder(request):
     status='Out for delivery'
     results=crudst.objects.all()
+<<<<<<< HEAD
     if status:
             results = results.filter(Q(status__icontains = status))
             ordercount= results.count()
     return render(request,"home.html",{"crudst":results,'ordercount':ordercount})
+=======
+    return render(request,"home.html",{"crudst":results})
+>>>>>>> 5babdfb4f7536e3ce2b0efc8392c7e418ed14582
 
 def orderdelivered(request):
         status = 'delivered'
