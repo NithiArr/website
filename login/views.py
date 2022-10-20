@@ -1,25 +1,18 @@
-from ast import Not
-from django.shortcuts import redirect, render
-from django.contrib.auth.models import User,auth
+from django.shortcuts import render,redirect
 from django.contrib import messages
+from django.contrib.auth.models import User, auth
 
 def loginn(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
-
-        user=auth.authenticate(username=username,password=password)
-        
+        user = auth.authernticate(username=username , password=password)
         if user is not None:
             auth.login(request,user)
-            return render(request,'base.html')
+            return redirect('home/')
         else:
-            messages.info(request,"Username or password doent match !!!!")
-            return redirect('/')
+            messages.info(request, 'Invalid')
     else:
-        return render(request,'login.html')
-
-
+        return render(request, 'login.html  ') 
 def logout(request):
-    auth.logout(request)
-    return redirect('/')
+    return render(request,'/')
