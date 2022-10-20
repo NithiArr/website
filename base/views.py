@@ -5,6 +5,13 @@ from django.contrib import messages
 from base.forms import stform
 from .filters import  crudstFilter
 from django.db.models import Q
+from random import randint
+
+def random_with_N_digits(n):
+    range_start = 10**(n-1)
+    range_end = (10**n)-1
+    return randint(range_start, range_end)
+sno = random_with_N_digits(5)
 
 def homee(request):
     results=crudst.objects.all()
@@ -20,12 +27,12 @@ def totalorder(request):
 
 def stinsert(request):
     if request.method == "POST":
-        if request.POST.get('stname') and request.POST.get('stemail') and request.POST.get('staddress') and request.POST.get('sno') and request.POST.get('price'):
+        if request.POST.get('stname') and request.POST.get('stemail') and request.POST.get('staddress') and request.POST.get('price'):
             savest = crudst()
             savest.fromdes=request.POST.get('stname')
             savest.todes=request.POST.get('stemail')
             savest.status=request.POST.get('staddress')
-            savest.sno=request.POST.get('sno')
+            savest.sno=sno
             savest.price=request.POST.get('price')
             savest.save()
             messages.success(request,"The Record saved successfully..!")
@@ -41,11 +48,6 @@ def stinsert(request):
     else:
         str='Pls enter valid ID'
         return render(request,'base.html',{'cont':str})
-        
-    
-
-    
-
 def stedit(request,id):
     getstudentdetails = crudst.objects.get(id=id)
     return render(request,"edit.html",{"crudst":getstudentdetails})

@@ -7,7 +7,10 @@ def home(request):
     return render(request, 'home.html')
 
 def totalorder(request):
+    status='Out for delivery'
     results=crudst.objects.all()
+    if status:
+            results = results.filter(Q(status__icontains = status))
     return render(request,"home.html",{"crudst":results})
 
 def orderdelivered(request):
