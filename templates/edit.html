@@ -1,41 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>edit & update page</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}" >
+    <link rel="stylesheet" href="{% static 'button.css' %}" >
+    <link rel="stylesheet" href="{% static 'nav.css' %}" >
 
 </head>
 <link>
 <body>
+    <div class="topnav">
+        <a class="active" href="/home">Home</a>
+        <a href="{% url 'stinsert' %}">Dashboard</a>
+        <a href="#contact">Contacts</a>
+        <a href="#about">About Us</a>
+        <a href="/">Logout</a>
+    </div>
     <center>
-        <h1>edit and update student record</h1>
-        <h2>the studentid is{{crudst.id}}</h2>
+        <h1>edit and update the courrier record</h1>
+        <h2>the courier reference no is {{crudst.sno}}</h2>
     <hr/>
     <form method ="POST" action="/update/{{crudst.id}}">
         {% csrf_token %}
     <table class="content-table">
         <tr>
+            
             <td>
-                studentame
+                fromdes
             </td>
-            <td><input type="text" name="stname" value="{{crudst.stname}}"></td>
+            <td><input type="text" name="fromdes" value="{{crudst.fromdes}}"></td>
+            
+            
             <td>
-                email
+                todes
             </td>
-            <td><input type="text" name="stemail" value="{{crudst.stemail}}"></td>
+            <td><input type="text" name="todes" value="{{crudst.todes}}"></td>
             <td>
-                address
+                status
             </td>
-            <td><input type="text" name ="staddress" value="{{crudst.staddress}}"></td>
+            <td><input type="text" name ="status" value="{{crudst.status}}"></td>
             <td>
-                mobile
+                Referenceno
             </td>
             <td><input type="text" name="sno" value="{{crudst.sno}}"></td>
+            <td>
+                Price
+            </td>
+            <td><input type="text" name="price" value="{{crudst.price}}"></td>
         </tr>
-
-
     </table>
-    <input type="submit" value="update record"/>
-        <a href="{% url 'stdisplay'%}">HOME</a>
+    <input type="submit" class="button button4" value="Upadate record"/>
     <hr/>
     {% if messages %}
         {% for result in messages%}

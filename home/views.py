@@ -7,6 +7,7 @@ def home(request):
     return render(request, 'home.html')
 
 def totalorder(request):
+    status='Out for delivery'
     results=crudst.objects.all()
     return render(request,"home.html",{"crudst":results})
 
