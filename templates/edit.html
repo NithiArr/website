@@ -3,47 +3,47 @@
 <html lang="en">
 <head>
     <title>edit & update page</title>
-    <link rel="stylesheet" href="{% static 'base.css' %}" >
     <link rel="stylesheet" href="{% static 'button.css' %}" >
-    <link rel="stylesheet" href="{% static 'nav.css' %}" >
+    <link rel="stylesheet" href="{% static 'ed.css' %}" >
 
 </head>
 <link>
 <body>
     <div class="topnav">
+        <a href="/home">{{user}}</a>
         <a class="active" href="/home">Home</a>
         <a href="{% url 'stinsert' %}">Dashboard</a>
         <a href="/">Logout</a>
     </div>
     <center>
-        <h1>EDIT AND UPDATE THE COURRIER </h1>
-        <h2>THE REFERENCE NO OF THE COURRIER  IS {{crudst.sno}}</h2>
+        <h1 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"> UPDATE THE COURRIER </h1>
+        <h2 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ; font-size:20px"> WITH REFERENCE NO    {{crudst.sno}}</h2>
     <hr/>
     <form method ="POST" action="/update/{{crudst.id}}">
         {% csrf_token %}
     <table class="content-table">
-        <tr>
+                <tr class="one">
             
             <td>
-                fromdes
+                <p>FROM: </p>
             </td>
             <td><input type="text" name="fromdes" value="{{crudst.fromdes}}"></td>
             
             
             <td>
-                todes
+                <p>TO:</p>
             </td>
-            <td><input type="text" name="todes" value="{{crudst.todes}}"></td>
+            <td><input type="text" name="todes" maxlength="10" size="10" height="1000" value="{{crudst.todes}}"></td>
             <td>
-                status
+               <p>STATUS:</p>
             </td>
             <td><input type="text" name ="status" value="{{crudst.status}}"></td>
             <td>
-                Referenceno
+               <p> REFERENCE NO: </p>
             </td>
             <td><input type="text" name="sno" value="{{crudst.sno}}"></td>
             <td>
-                Price
+               <p> PRICE: </p>
             </td>
             <td><input type="text" name="price" value="{{crudst.price}}"></td>
         </tr>
@@ -52,7 +52,7 @@
     <hr/>
     {% if messages %}
         {% for result in messages%}
-        <b style="color:aqua;">{{result}}</b> 
+        <b style="color:rgb(15, 15, 15);">{{result}}</b> 
         {% endfor %}
         {% endif %}
     </center>

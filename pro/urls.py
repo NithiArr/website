@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path,include
-from login.views import loginn,logout,adminlogin, registerr,    register
+from login.views import loginn,logout,adminlogin, registerr,   register
 from base.views import stedit,stupdate,stdel,stinsert,stdisplay,homee,searchpage
 from home.views  import totalorder,orderdelivered,pending
 urlpatterns = [

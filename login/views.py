@@ -11,7 +11,9 @@ def loginn(request):
         
         if user is not None:
             auth.login(request,user)
-            return redirect('home/')
+            name= user.first_name
+            return redirect('home/',{'first': name })
+
         else:
             messages.info(request,"Doesnt Match")
             return redirect('/')
@@ -43,11 +45,12 @@ def registerr(request):
 
 def register(request):
     if request.method == "POST":
+        first_name= request.POST['name']
         username = request.POST['username']
         password = request.POST['password'] 
-        user= User.objects.create_user(username=username,password=password)
+        user= User.objects.create_user(first_name= first_name,username=username,password=password)
         user.save();
-        return render(request, "login.html",{"user":username})
+        return render(request, "login.html",{"user":first_name})
         
     else:
         return render(request  ,'register.html') 

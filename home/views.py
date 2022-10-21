@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from base.models import crudst
 from django.db.models import Q
+from django.db.models import Sum
 
 
 def home(request):
@@ -13,7 +14,8 @@ def totalorder(request):
     if status:
             results = results.filter(Q(status__icontains = status))
             ordercount= results.count()
-    return render(request,"home.html",{"crudst":results,'ordercount':ordercount})
+            total=results.aggregate(Sum('price'))
+    return render(request,"home.html",{"crudst":results,'ordercount':ordercount,'total':total})
 
 def orderdelivered(request):
         status = 'delivered'
@@ -23,7 +25,8 @@ def orderdelivered(request):
             
             emps = emps.filter(Q(status__icontains = status))
             cou= emps.count()
-        return render(request, 'home.html', {'detail': emps,'cou':cou})
+            sumof=emps.aggregate(Sum('price'))
+        return render(request, 'home.html', {'detail': emps,'cou':cou,'sum':sumof})
 
 def pending(request):
         status = 'pending'
@@ -31,4 +34,5 @@ def pending(request):
         if status:
             emps = emps.filter(Q(status__icontains = status))
             cou= emps.count()
-        return render(request, 'home.html', {'details': emps,'ou':cou})
+            suprice=emps.aggregate(Sum('price'))
+        return render(request, 'home.html', {'details': emps,'ou':cou,'price':suprice})

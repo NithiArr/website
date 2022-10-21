@@ -36,8 +36,8 @@ def stinsert(request):
             savest.sno=sno
             savest.price=request.POST.get('price')
             savest.save()
-            messages.success(request,"The Record saved successfully..!")
-            return render(request,"base.html") 
+            messages.success(request,"THE RECORD IS INSERTED SUCCESSFULLY...! AND THE REFERENCE ID IS")
+            return render(request,"base.html",{'ref': sno}) 
     else:
         
         return render(request,"base.html")
@@ -59,7 +59,7 @@ def stupdate(request,id):
     form = stform(request.POST,instance=stupdate)
     if form.is_valid():
         form.save()
-        messages.success(request,"the courrier record hasbeen updated successfully!!")
+        messages.success(request,"THE COURRIER RECORD HAS BEEN UPDATED SUCCESSFULLY..!!")
         return render(request,"edit.html",{"crudst":stupdate})
 def stdel(request,id):
     delstudent = crudst.objects.get(id=id)
