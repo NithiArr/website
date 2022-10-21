@@ -13,13 +13,8 @@ def loginn(request):
             auth.login(request,user)
             return redirect('home/')
         else:
-<<<<<<< HEAD
             messages.info(request,"Doesnt Match")
             return redirect('/')
-=======
-            messages.info(request, 'Doesnt Match')
-            return render(request,'login.html')
->>>>>>> 5babdfb4f7536e3ce2b0efc8392c7e418ed14582
     else:
         return render(request, 'login.html') 
 
@@ -52,7 +47,7 @@ def register(request):
         password = request.POST['password'] 
         user= User.objects.create_user(username=username,password=password)
         user.save();
-        return render(request, "login.html")
+        return render(request, "login.html",{"user":username})
         
     else:
         return render(request  ,'register.html') 

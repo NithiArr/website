@@ -13,13 +13,11 @@
     <div class="topnav">
         <a class="active" href="/home">Home</a>
         <a href="{% url 'stinsert' %}">Dashboard</a>
-        <a href="#contact">Contacts</a>
-        <a href="#about">About Us</a>
         <a href="/">Logout</a>
     </div>
     <center>
-        <h1>edit and update the courrier record</h1>
-        <h2>the courier reference no is {{crudst.sno}}</h2>
+        <h1>EDIT AND UPDATE THE COURRIER </h1>
+        <h2>THE REFERENCE NO OF THE COURRIER  IS {{crudst.sno}}</h2>
     <hr/>
     <form method ="POST" action="/update/{{crudst.id}}">
         {% csrf_token %}

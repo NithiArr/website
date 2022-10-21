@@ -39,6 +39,7 @@ def stinsert(request):
             messages.success(request,"The Record saved successfully..!")
             return render(request,"base.html") 
     else:
+        
         return render(request,"base.html")
     if request.method == 'POST':
         no = request.POST['sno']
@@ -58,7 +59,7 @@ def stupdate(request,id):
     form = stform(request.POST,instance=stupdate)
     if form.is_valid():
         form.save()
-        messages.success(request,"the student record hasbeen updated successfully!!")
+        messages.success(request,"the courrier record hasbeen updated successfully!!")
         return render(request,"edit.html",{"crudst":stupdate})
 def stdel(request,id):
     delstudent = crudst.objects.get(id=id)
